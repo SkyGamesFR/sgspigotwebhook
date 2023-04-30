@@ -1,0 +1,29 @@
+discord.token: token
+    # Discord bot token
+    # Type: String
+    # Default: ""
+
+discord.channel: channel
+    # Discord channel ID
+    # Type: String
+    # Default: ""
+
+discord.webhook: webhook
+    # Discord webhook URL
+    # Type: String
+    # Default: ""
+
+server.name: name
+    # Server name
+    # Type: String
+    # Default: ""
+
+server.color: color
+    # Server color
+    # Type: String
+    # Default: "#fff"
+
+server.icon: icon
+    # Server icon
+    # Type: String
+    # Default: "URL"
