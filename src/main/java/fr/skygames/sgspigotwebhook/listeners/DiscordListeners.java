@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 public class DiscordListeners extends ListenerAdapter {
@@ -27,7 +28,13 @@ public class DiscordListeners extends ListenerAdapter {
         Message message = event.getMessage();
         String content = message.getContentRaw();
 
-        plugin.getServer().broadcastMessage("§l§8[§bDISCORD§8§l] §f§r" + event.getMessage().getAuthor().getName() + " §8§l>§r "+ content);
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            player.sendMessage("§l§8[§bDISCORD§8§l] §f§r" + event.getMessage().getAuthor().getName() + " §8§l>§r "+ content);
+
+            if (content.contains(player.getName())) {
+                content = content.replace(player.getName(), "§b@" + player.getName() + "§f");
+            }
+        }
     }
 
     @Override
